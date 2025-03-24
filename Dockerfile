@@ -1,23 +1,18 @@
-# Use an official lightweight Python image.
+# Use a lightweight Python image
 FROM python:3.9-slim
 
-# Set the working directory in the container.
+# Set the working directory
 WORKDIR /app
 
-# Copy the requirements file into the container.
+# Copy requirements and install them
 COPY requirements.txt .
-
-# Install dependencies.
 RUN pip install --upgrade pip && pip install -r requirements.txt
 
-# Copy the rest of the application code.
+# Copy the rest of your application code
 COPY . .
 
-# Expose the port the app runs on
+# Expose port 8080 (default for Cloud Run)
 EXPOSE 8080
 
-# Set environment variables for Flask (optional)
-ENV PORT 8080
-
-# Command to run the application using Gunicorn.
+# Start the app with Gunicorn
 CMD ["gunicorn", "--bind", "0.0.0.0:8080", "app:app"]
