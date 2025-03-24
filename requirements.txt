@@ -5,4 +5,4 @@ Pillow==9.2.0
 numpy==2.0.2
 scipy==1.13.1
 gunicorn==20.1.0
-# Remove explicit pin for Werkzeug to let Flask choose a compatible version
+
