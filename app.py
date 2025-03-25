@@ -2,7 +2,7 @@ import os
 import io
 import numpy as np
 from PIL import Image
-import tflite_runtime.interpreter as tflite
+import tensorflow as tf
 from flask import Flask, request, jsonify, render_template
 
 app = Flask(__name__)
